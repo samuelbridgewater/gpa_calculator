@@ -8,17 +8,11 @@ namespace gpa_calculator
     {
         static void CalculateGpa(int creditPoints, int[] grades)
         {
-            List<double> semesterAverage = new List<double>();
             double finalGpa = 0;
-
             foreach (int grade in grades)
             {
                 finalGpa += grade * creditPoints;
 
-                if (grade % 4 == 0)
-                {
-                    semesterAverage.Add(grade);
-                }
             }
             creditPoints = (grades.Length * creditPoints);
             finalGpa = finalGpa / creditPoints;
@@ -33,7 +27,7 @@ namespace gpa_calculator
                 Console.WriteLine("Are you sure you entered all possible grades?");
                 return;
             }
-            
+           
             double[] semAverage = new double[grades.Length / unitsPerSem];
             int semCount = 0;
             int ctr = 0;
@@ -42,8 +36,7 @@ namespace gpa_calculator
             {
                 if (i % unitsPerSem == 0 && i > 0)
                 {
-                    semAverage[semCount] = semAverage[semCount] / (creditPoints * unitsPerSem);
-                  
+                    semAverage[semCount] = semAverage[semCount] / (creditPoints * unitsPerSem);      
                     Console.Write("| Semester {0} GPA:{1} ", semCount + 1, semAverage[semCount]);
                     
                     if (semAverage[semCount] >= 6.5)
@@ -55,7 +48,6 @@ namespace gpa_calculator
                         Console.Write("\t\t\t\t\t\t\t\t\t       |");
                         Console.WriteLine();
                     }
-
 
                     if (ctr == grades.Length)
                     {
