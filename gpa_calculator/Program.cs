@@ -55,16 +55,14 @@ namespace gpa_calculator
                         Console.Write("\t\t\t\t\t\t\t\t\t       |");
                         Console.WriteLine();
                     }
-                  
+
 
                     if (ctr == grades.Length)
                     {
                         Console.WriteLine("------------------------------------------------------------------------------------------------");
                         return;
                     }
-
                     semCount += 1;
-
                 }
                 semAverage[semCount] += grades[ctr] * creditPoints;
                 ctr++;                   
